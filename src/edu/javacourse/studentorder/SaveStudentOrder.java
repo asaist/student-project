@@ -1,14 +1,16 @@
+package edu.javacourse.studentorder;
+
+import edu.javacourse.studentorder.domain.StudentOrder;
+
 public class SaveStudentOrder {
     public static void main(String[] args) {
-        StudentOrder so;
-        so = new StudentOrder();
+        StudentOrder so= new StudentOrder();
         so.hFirstName = "Алексей";
         so.hLastName = "Петров";
         so.wFirstName = "Галина";
         so.wLastName = "Петрова";
 
-        StudentOrder so1;
-        so1 = new StudentOrder();
+        StudentOrder so1 = new StudentOrder();
         so1.hFirstName = "Алексей";
         so1.hLastName = "Сидоров";
         so1.wFirstName = "Галина";
