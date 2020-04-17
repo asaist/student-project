@@ -1,30 +1,35 @@
 package edu.javacourse.studentorder;
 
+import edu.javacourse.studentorder.domain.Person;
+import edu.javacourse.studentorder.domain.other.Adult;
 import edu.javacourse.studentorder.domain.StudentOrder;
 
 public class SaveStudentOrder {
     public static void main(String[] args) {
-        StudentOrder so= new StudentOrder();
-        so.hFirstName = "Алексей";
-        so.hLastName = "Петров";
-        so.wFirstName = "Галина";
-        so.wLastName = "Петрова";
 
-        StudentOrder so1 = new StudentOrder();
-        so1.hFirstName = "Алексей";
-        so1.hLastName = "Сидоров";
-        so1.wFirstName = "Галина";
-        so1.wLastName = "Сидорова";
-
-        long ans = saveStudentOrder(so);
-        System.out.println(ans);
-        long ans1 = saveStudentOrder(so1);
-        System.out.println(ans1);
+//        buildStudentOrder();
+//        StudentOrder so= new StudentOrder();
+//        long ans = saveStudentOrder(so);
+//        System.out.println(ans);
     }
     static long saveStudentOrder(StudentOrder studentOrder){
         long answer;
         answer=199;
-        System.out.println("saveStudentOrder:" + studentOrder.hLastName);
+        System.out.println("saveStudentOrder");
         return answer;
+    }
+    public static StudentOrder buildStudentOrder(long id){
+        StudentOrder so = new StudentOrder();
+        so.setStudentOrderId(id);
+
+//        husband.setGivenName("Андрей");
+//        husband.setSurName("Петров");
+//        husband.setPassportNumber("123456");
+//        so.setHusband(husband);
+//
+//        String ans = husband.getPersonString();
+//        System.out.println(ans);
+
+        return so;
     }
 }
