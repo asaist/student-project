@@ -6,4 +6,5 @@ import edu.javacourse.studentorder.exception.CityRegisterException;
 
 public interface CityRegisterChecker {
     CityRegisterCheckerResponse checkPerson (Person person)throws CityRegisterException;
+
 }
