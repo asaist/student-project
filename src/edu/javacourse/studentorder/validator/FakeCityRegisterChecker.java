@@ -1,7 +1,7 @@
 package edu.javacourse.studentorder.validator;
 
 import edu.javacourse.studentorder.domain.Child;
-import edu.javacourse.studentorder.domain.CityRegisterCheckerResponse;
+import edu.javacourse.studentorder.domain.register.CityRegisterResponse;
 import edu.javacourse.studentorder.domain.Person;
 import edu.javacourse.studentorder.domain.other.Adult;
 import edu.javacourse.studentorder.exception.CityRegisterException;
@@ -15,8 +15,8 @@ public class FakeCityRegisterChecker implements CityRegisterChecker{
     private static final String ERROR_1 = "1002";
     private static final String ERROR_2 = "2002";
 
-    public CityRegisterCheckerResponse checkPerson(Person person) throws CityRegisterException {
-        CityRegisterCheckerResponse res = new CityRegisterCheckerResponse();
+    public CityRegisterResponse checkPerson(Person person) throws CityRegisterException {
+        CityRegisterResponse res = new CityRegisterResponse();
         if (person instanceof Adult){
             Adult t = (Adult)person;
             if (t.getPassportSeria().equals(GOOD_1) || t.getPassportSeria().equals(GOOD_2) ){
