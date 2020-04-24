@@ -37,12 +37,13 @@ public class FakeCityRegisterChecker implements CityRegisterChecker{
                 TransportException ex = new TransportException("Transport ERROR" + t.getPassportSeria());
                 throw ex;
             }
-            if (person instanceof Child){
-                res.setExisting(true);
-                res.setTemporal(true);
-            }
+
             System.out.println(res);
         }
-        return null;
+        if (person instanceof Child){
+            res.setExisting(true);
+            res.setTemporal(true);
+        }
+        return res;
     }
 }
