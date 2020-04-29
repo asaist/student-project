@@ -2,7 +2,7 @@ package edu.javacourse.studentorder.domain;
 
 public class Address {
     private String postCode;
-    private String street;
+    private Street street;
     private String building;
     private String extension;
     private String apartment;
@@ -10,7 +10,7 @@ public class Address {
     public Address() {
     }
 
-    public Address(String postCode, String street, String building, String extension, String apartment) {
+    public Address(String postCode, Street street, String building, String extension, String apartment) {
         this.postCode = postCode;
         this.street = street;
         this.building = building;
@@ -26,11 +26,11 @@ public class Address {
         this.postCode = postCode;
     }
 
-    public String getStreet() {
+    public Street getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
+    public void setStreet(Street street) {
         this.street = street;
     }
 
