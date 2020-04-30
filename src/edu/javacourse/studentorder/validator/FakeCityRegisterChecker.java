@@ -3,7 +3,7 @@ package edu.javacourse.studentorder.validator;
 import edu.javacourse.studentorder.domain.Child;
 import edu.javacourse.studentorder.domain.register.CityRegisterResponse;
 import edu.javacourse.studentorder.domain.Person;
-import edu.javacourse.studentorder.domain.other.Adult;
+import edu.javacourse.studentorder.domain.Adult;
 import edu.javacourse.studentorder.exception.CityRegisterException;
 import edu.javacourse.studentorder.exception.TransportException;
 
