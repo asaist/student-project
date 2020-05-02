@@ -1,17 +1,36 @@
 package edu.javacourse.studentorder.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentOrder {
     private long studentOrderId;
+    private StudentOrderStatus studentOrderStatus;
+    private LocalDateTime studentOrderDate;
     private Adult husband;
     private Adult wife;
     private List<Child> children;
     private String marriageCertificateId;
-    private String marriageOffice;
+    private RegisterOffice marriageOffice;
     private LocalDate marriageDate;
+
+    public StudentOrderStatus getStudentOrderStatus() {
+        return studentOrderStatus;
+    }
+
+    public void setStudentOrderStatus(StudentOrderStatus studentOrderStatus) {
+        this.studentOrderStatus = studentOrderStatus;
+    }
+
+    public LocalDateTime getStudentOrderDate() {
+        return studentOrderDate;
+    }
+
+    public void setStudentOrderDate(LocalDateTime studentOrderDate) {
+        this.studentOrderDate = studentOrderDate;
+    }
 
     public long getStudentOrderId() {
         return studentOrderId;
@@ -55,11 +74,11 @@ public class StudentOrder {
         this.marriageCertificateId = marriageCertificateId;
     }
 
-    public String getMarriageOffice() {
+    public RegisterOffice getMarriageOffice() {
         return marriageOffice;
     }
 
-    public void setMarriageOffice(String marriageOffice) {
+    public void setMarriageOffice(RegisterOffice marriageOffice) {
         this.marriageOffice = marriageOffice;
     }
 

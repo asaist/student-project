@@ -1,6 +1,8 @@
 package edu.javacourse.studentorder;
 
 import edu.javacourse.studentorder.dao.DictionaryDaoImpl;
+import edu.javacourse.studentorder.dao.StudentOrderDao;
+import edu.javacourse.studentorder.dao.StudentOrderDaoImpl;
 import edu.javacourse.studentorder.domain.*;
 
 import java.time.LocalDate;
@@ -20,23 +22,28 @@ public class SaveStudentOrder {
 //        for (RegisterOffice r:ro){
 //            System.out.println(r.getOfficeName());
 //        }
-        List<CountryArea> ca1 = new DictionaryDaoImpl().findAreas("");
-        for (CountryArea c:ca1){
-            System.out.println(c.getAreaId() + ";" + c.getAreaName());
-        }
-        System.out.println("--->");
-        List<CountryArea> ca2 = new DictionaryDaoImpl().findAreas("020000000000");
-        for (CountryArea c:ca2){
-            System.out.println(c.getAreaId() + ";" + c.getAreaName());
-        }
-        List<CountryArea> ca3 = new DictionaryDaoImpl().findAreas("020010000000");
-        for (CountryArea c:ca3){
-            System.out.println(c.getAreaId() + ";" + c.getAreaName());
-        }
-        List<CountryArea> ca4 = new DictionaryDaoImpl().findAreas("020010010000");
-        for (CountryArea c:ca4){
-            System.out.println(c.getAreaId() + ";" + c.getAreaName());
-        }
+//        List<CountryArea> ca1 = new DictionaryDaoImpl().findAreas("");
+//        for (CountryArea c:ca1){
+//            System.out.println(c.getAreaId() + ";" + c.getAreaName());
+//        }
+//        System.out.println("--->");
+//        List<CountryArea> ca2 = new DictionaryDaoImpl().findAreas("020000000000");
+//        for (CountryArea c:ca2){
+//            System.out.println(c.getAreaId() + ";" + c.getAreaName());
+//        }
+//        List<CountryArea> ca3 = new DictionaryDaoImpl().findAreas("020010000000");
+//        for (CountryArea c:ca3){
+//            System.out.println(c.getAreaId() + ";" + c.getAreaName());
+//        }
+//        List<CountryArea> ca4 = new DictionaryDaoImpl().findAreas("020010010000");
+//        for (CountryArea c:ca4){
+//            System.out.println(c.getAreaId() + ";" + c.getAreaName());
+//        }
+
+        StudentOrder so = buildStudentOrder(10);
+        StudentOrderDao dao = new StudentOrderDaoImpl();
+        dao.saveStudentOrder(so);
+
 
     }
 
@@ -46,7 +53,7 @@ public class SaveStudentOrder {
         so.setMarriageCertificateId("" + (123456000 + id));
         so.setMarriageDate(LocalDate.of(2016, 7, 4));
         RegisterOffice ro = new RegisterOffice(1L,"", "");
-        so.setMarriageOffice("Отдел ЗАГС");
+        so.setMarriageOffice(ro);
         Street street = new Street(1L,"First street");
         Address address = new Address("195000", street, "12", "", "142");
 
