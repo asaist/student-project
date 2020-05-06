@@ -42,7 +42,8 @@ public class SaveStudentOrder {
 
         StudentOrder so = buildStudentOrder(10);
         StudentOrderDao dao = new StudentOrderDaoImpl();
-        dao.saveStudentOrder(so);
+        Long id = dao.saveStudentOrder(so);
+        System.out.println(id);
 
 
     }

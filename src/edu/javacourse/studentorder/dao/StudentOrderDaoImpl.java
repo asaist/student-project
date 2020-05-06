@@ -5,6 +5,8 @@ import edu.javacourse.studentorder.domain.*;
 import edu.javacourse.studentorder.exception.DaoException;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class StudentOrderDaoImpl implements StudentOrderDao {
 
@@ -37,11 +39,12 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
     }
     @Override
     public Long saveStudentOrder(StudentOrder so) throws DaoException {
+        Long result = -1L;
         try(Connection con = getConnection();
-            PreparedStatement stmt = con.prepareStatement(INSERT_ORDER))  {
+            PreparedStatement stmt = con.prepareStatement(INSERT_ORDER, new String[] {"student_order_id"}))  {
             //HEADER
             stmt.setInt(1, StudentOrderStatus.START.ordinal());
-            stmt.setTimestamp(2,java.sql.Timestamp.valueOf(so.getStudentOrderDate()));
+            stmt.setTimestamp(2,java.sql.Timestamp.valueOf(LocalDateTime.now()));
             //HUSBAND
             Adult husband = so.getHusband();
             stmt.setString(3,husband.getSurName());
@@ -82,9 +85,14 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
 
             stmt.executeUpdate();
 
+            ResultSet gkRs = stmt.getGeneratedKeys();
+            if (gkRs.next()){
+                result = gkRs.getLong(1);
+            }
+            gkRs.close();
         }catch (SQLException ex) {
             throw  new DaoException(ex);
         }
-        return 0L;
+        return result;
     }
 }
