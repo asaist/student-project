@@ -89,12 +89,13 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
 
     private void SaveChildren(Connection con, StudentOrder so, Long soId)  throws SQLException{
         try (PreparedStatement stmt = con.prepareStatement(INSERT_CHILD)){
-            for (Child child : so.getChildren()){
-                stmt.setLong(1,soId);
-                setParamsForChild(stmt, child);
-                stmt.executeUpdate();
 
+            for (Child child : so.getChildren()) {
+                stmt.setLong(1, soId);
+                setParamsForChild(stmt, child);
+                stmt.addBatch();
             }
+             stmt.executeBatch();
         }
 
     }
