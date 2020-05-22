@@ -9,19 +9,20 @@ public class Adult  extends Person {
     private String passportNumber;
     private LocalDate issueDate;
     private PassportOffice issueDepartment;
-    private String univercity;
+    private University university;
     private String studentId;
 
 
     public Adult(String surName, String givenName, String patronymic, LocalDate dateOfBirth) {
         super(surName, givenName, patronymic, dateOfBirth);
     }
-    public String getUnivercity() {
-        return univercity;
+
+    public University getUniversity() {
+        return university;
     }
 
-    public void setUnivercity(String univercity) {
-        this.univercity = univercity;
+    public void setUniversity(University university) {
+        this.university = university;
     }
 
     public String getStudentId() {
