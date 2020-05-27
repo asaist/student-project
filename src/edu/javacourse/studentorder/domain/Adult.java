@@ -12,10 +12,13 @@ public class Adult  extends Person {
     private University university;
     private String studentId;
 
+    public Adult() {
+    }
 
     public Adult(String surName, String givenName, String patronymic, LocalDate dateOfBirth) {
         super(surName, givenName, patronymic, dateOfBirth);
     }
+
 
     public University getUniversity() {
         return university;
